@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernanda Almeida | Treino Personalizado & Consultoria</title>
+
+    <meta name="description" content="Acompanhamento personalizado presencial em Jaraguá - GO e Online. Transforme sua rotina com treinos pensados exclusivamente para o seu objetivo de saúde, estética e bem-estar.">
+    <meta name="keywords" content="personal trainer Jaraguá, consultoria online, emagrecimento, hipertrofia, educação física, treino personalizado">
+    <meta name="author" content="Fernanda Almeida">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fernandaalmeida.com.br/">
+    <meta property="og:title" content="Fernanda Almeida | Treino Personalizado & Consultoria">
+    <meta property="og:description" content="Transforme sua rotina com treinos pensados exclusivamente para o seu objetivo. Atendimento Presencial e Online.">
+    <meta property="og:image" content="personalsentada.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        title: ['Playfair Display', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        claro: {
+                            fundo: '#0B0B0B',
+                            fundoAlt: '#141414',
+                            card: '#1B1B1A',
+                            principal: '#B08D3F',
+                            accent: '#CBA76B',
+                            titulo: '#F5F3EF',
+                            texto: '#B9B6B0',
+                            linhas: '#2A2A28',
+                            hover: '#8C6D2F',
+                            gold: '#CBA76B'
+                        },
+                        escuro: {
+                            fundo: '#170609',
+                            fundoAlt: '#1F0810',
+                            card: '#28090F',
+                            cardAlt: '#340B14',
+                            texto: '#D9BFC3',
+                            titulo: '#F6E9E7',
+                            principal: '#B8203E',
+                            bright: '#E14463',
+                            hover: '#8C1930',
+                            linhas: '#3B0E19',
+                            gold: '#CBA76B'
+                        }
+                    },
+                    borderRadius: {
+                        'btn': '14px',
+                        'card': '22px',
+                        'photo': '28px',
+                        'input': '14px',
+                    },
+                    boxShadow: {
+                        'claro': '0 20px 45px rgba(0, 0, 0, 0.45)',
+                        'escuro': '0 25px 60px rgba(0,0,0,.55)',
+                        'glow': '0 0 0 1px rgba(184,32,62,0.4), 0 20px 60px -10px rgba(184,32,62,0.45)',
+                        'glowGold': '0 0 0 1px rgba(203,167,107,0.35), 0 15px 40px -10px rgba(203,167,107,0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --vinho-950: #170609;
+            --vinho-800: #28090F;
+            --vinho-700: #3B0E19;
+            --vinho-600: #5C1226;
+            --vinho-500: #8C1930;
+            --vinho-400: #B8203E;
+            --vinho-300: #E14463;
+            --gold: #CBA76B;
+        }
+
+        * { -webkit-tap-highlight-color: transparent; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0B0B0B;
+            color: #B9B6B0;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            position: relative;
+        }
+        .dark body {
+            background-color: #170609;
+            color: #D9BFC3;
+        }
+        .font-title-setting { font-family: 'Playfair Display', serif; }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #CBA76B, #8C6D2F); border-radius: 10px; }
+        .dark ::-webkit-scrollbar-track { background: #170609; }
+        .dark ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--vinho-400), var(--vinho-600)); }
+
+        /* ===== Scroll progress bar ===== */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+            background: linear-gradient(90deg, #CBA76B, #8C6D2F, #CBA76B);
+            z-index: 60; transition: width 0.1s ease-out;
+        }
+        .dark #scroll-progress {
+            background: linear-gradient(90deg, var(--gold), var(--vinho-400), var(--vinho-300));
+        }
+
+        /* ===== Grain / noise texture overlay ===== */
+        .noise-overlay {
+            position: fixed; inset: 0; pointer-events: none; z-index: 40;
+            opacity: 0.035; mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ===== Cursor glow (desktop only) ===== */
+        #cursor-glow {
+            position: fixed; top: 0; left: 0; width: 480px; height: 480px;
+            pointer-events: none; z-index: 1; border-radius: 50%;
+            background: radial-gradient(circle, rgba(203,167,107,0.18), transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+        .dark #cursor-glow {
+            background: radial-gradient(circle, rgba(184,32,62,0.16), transparent 70%);
+        }
+        .dark #cursor-glow { opacity: 1; }
+
+        /* ===== Ambient blobs ===== */
+        .blob {
+            position: absolute; border-radius: 50%; filter: blur(70px);
+            opacity: 0.55; z-index: 0; pointer-events: none;
+        }
+        @keyframes float-a { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(30px,-40px) scale(1.08); } }
+        @keyframes float-b { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,30px) scale(0.95); } }
+        .blob-a { animation: float-a 16s ease-in-out infinite; }
+        .blob-b { animation: float-b 20s ease-in-out infinite; }
+
+        /* ===== Glass surfaces ===== */
+        .glass {
+            background: rgba(40, 9, 15, 0.55);
+            border: 1px solid rgba(203, 167, 107, 0.12);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+        .light .glass, html:not(.dark) .glass {
+            background: rgba(24,24,22,0.65);
+            border: 1px solid rgba(203,167,107,0.16);
+        }
+        .backdrop-blur-nav { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+
+        /* ===== Gradient text ===== */
+        .grad-text {
+            background: linear-gradient(100deg, #CBA76B 0%, #F5F3EF 50%, #CBA76B 100%);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .dark .grad-text {
+            background: linear-gradient(100deg, var(--gold) 0%, var(--vinho-300) 45%, var(--vinho-400) 100%);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+
+        /* ===== Cor automática alternando de branco para preto ===== */
+        @keyframes colorCycleWB {
+            0%, 100% { color: #FFFFFF; }
+            50% { color: #000000; }
+        }
+        .color-cycle {
+            animation: colorCycleWB 3s ease-in-out infinite;
+        }
+
+        /* ===== Rotating gradient ring around photos ===== */
+        .ring-wrap { position: relative; padding: 6px; border-radius: 28px; }
+        .ring-wrap::before {
+            content: ''; position: absolute; inset: 0; border-radius: 28px; padding: 3px;
+            background: conic-gradient(from 0deg, #CBA76B, #F5F3EF, #8C6D2F, #CBA76B);
+            animation: spin 9s linear infinite;
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+        }
+        .dark .ring-wrap::before {
+            background: conic-gradient(from 0deg, var(--gold), var(--vinho-400), var(--vinho-600), var(--vinho-300), var(--gold));
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ===== Marquee ===== */
+        .marquee-track { display: flex; white-space: nowrap; animation: marquee 52s linear infinite; }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* ===== Pulse divider (signature element) ===== */
+        .pulse-divider { width: 100%; height: 46px; overflow: hidden; }
+        .pulse-path {
+            stroke: url(#pulseGrad);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-dasharray: 6 6;
+            animation: dash 3.5s linear infinite;
+        }
+        @keyframes dash { to { stroke-dashoffset: -600; } }
+
+        /* ===== Magnetic buttons ===== */
+        .btn-magnetic { transition: transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s ease, background-color .35s ease; }
+        .btn-magnetic:hover { transform: translateY(-3px) scale(1.015); }
+
+        /* ===== Reveal ===== */
+        .reveal { opacity: 0; transform: translateY(34px); transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-stagger > * { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal-stagger.active > * { opacity: 1; transform: translateY(0); }
+        .reveal-stagger.active > *:nth-child(1) { transition-delay: .05s; }
+        .reveal-stagger.active > *:nth-child(2) { transition-delay: .15s; }
+        .reveal-stagger.active > *:nth-child(3) { transition-delay: .25s; }
+        .reveal-stagger.active > *:nth-child(4) { transition-delay: .35s; }
+        .reveal-stagger.active > *:nth-child(5) { transition-delay: .45s; }
+        .reveal-stagger.active > *:nth-child(6) { transition-delay: .55s; }
+
+        /* ===== Card hover glow ===== */
+        .hover-glow { transition: transform .4s cubic-bezier(.2,.8,.3,1), box-shadow .4s ease, border-color .4s ease; }
+        .hover-glow:hover { transform: translateY(-6px); border-color: rgba(203,167,107,0.55); box-shadow: 0 25px 50px -15px rgba(203,167,107,0.25); }
+        .dark .hover-glow:hover { border-color: rgba(184,32,62,0.45); box-shadow: 0 25px 50px -15px rgba(184,32,62,0.35); }
+
+        /* ===== Zoom + thin gold underline on hover (black/claro theme only) ===== */
+        html:not(.dark) .btn-magnetic,
+        html:not(.dark) .hover-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        html:not(.dark) .btn-magnetic::after,
+        html:not(.dark) .hover-glow::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            height: 2px;
+            width: 0%;
+            background: linear-gradient(90deg, transparent, #CBA76B 50%, transparent);
+            transition: width .45s cubic-bezier(.2,.8,.3,1);
+            pointer-events: none;
+        }
+        html:not(.dark) .btn-magnetic:hover::after,
+        html:not(.dark) .hover-glow:hover::after {
+            width: 88%;
+        }
+        html:not(.dark) .btn-magnetic:hover {
+            transform: translateY(-3px) scale(1.035);
+        }
+        html:not(.dark) .hover-glow:hover {
+            transform: translateY(-6px) scale(1.025);
+        }
+
+        /* ===== Dot grid backdrop ===== */
+        .dot-grid {
+            background-image: radial-gradient(rgba(203,167,107,0.35) 1px, transparent 1.5px);
+            background-size: 22px 22px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .blob-a, .blob-b, .marquee-track, .ring-wrap::before, .pulse-path { animation: none !important; }
+            .reveal, .reveal-stagger > * { transition: none !important; opacity: 1 !important; transform: none !important; }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <div id="scroll-progress"></div>
+    <div class="noise-overlay"></div>
+    <div id="cursor-glow"></div>
+
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 px-[10%] tablet:px-[7%] max-sm:pl-3 max-sm:pr-6">
+        <div class="flex items-center justify-between mx-auto max-w-7xl">
+            <a href="#" class="flex items-center gap-3 text-2xl font-title-setting font-bold tracking-tight text-claro-titulo dark:text-escuro-titulo">
+                <img src="data:image/png;base64,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" alt="Fernanda Almeida" class="h-9 w-auto">
+                <span>Fernanda<span class="grad-text invisible">Almeida</span></span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-base font-medium text-claro-texto dark:text-escuro-texto">
+                <a href="#" class="relative hover:text-claro-accent dark:hover:text-escuro-bright transition-colors">Início</a>
+                <a href="#sobre" class="relative hover:text-claro-accent dark:hover:text-escuro-bright transition-colors">Sobre</a>
+                <a href="#servicos" class="relative hover:text-claro-accent dark:hover:text-escuro-bright transition-colors">Serviços</a>
+                <a href="#diferenciais" class="relative hover:text-claro-accent dark:hover:text-escuro-bright transition-colors">Diferenciais</a>
+                <a href="#depoimentos" class="relative hover:text-claro-accent dark:hover:text-escuro-bright transition-colors">Depoimentos</a>
+                <a href="#faq" class="relative hover:text-claro-accent dark:hover:text-escuro-bright transition-colors">FAQ</a>
+                <a href="#contato" class="relative hover:text-claro-accent dark:hover:text-escuro-bright transition-colors">Contato</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2.5 rounded-btn bg-claro-linhas dark:bg-escuro-cardAlt text-claro-titulo dark:text-escuro-titulo transition-all hover:scale-105" aria-label="Alternar tema">
+                    <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                </button>
+
+                <a href="https://wa.me/5562999999999" target="_blank" class="btn-magnetic hidden sm:flex items-center gap-2 h-14 px-6 bg-gradient-to-r from-claro-principal to-claro-hover dark:from-escuro-principal dark:to-escuro-hover text-white rounded-btn font-semibold shadow-claro dark:shadow-glow">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.463 3.484 1.343 4.997L2 22l5.116-1.334a9.945 9.945 0 0 0 4.885 1.334h.004c5.514 0 9.997-4.483 9.997-9.997s-4.483-9.997-9.997-9.997zm5.741 15.738a8.286 8.286 0 0 1-5.741 2.257h-.003a8.29 8.29 0 0 1-4.223-1.152l-.303-.18-3.037.793.81-2.96-.198-.304a8.264 8.264 0 0 1-1.267-4.396c0-4.573 3.722-8.294 8.297-8.294 2.217 0 4.301.865 5.868 2.434a8.244 8.244 0 0 1 2.428 5.865c0 4.574-3.722 8.294-8.28 8.294z"/></svg>
+                    <span>WhatsApp</span>
+                </a>
+
+                <button id="menu-toggle" class="lg:hidden p-2.5 text-claro-titulo dark:text-escuro-titulo" aria-label="Abrir menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-claro-fundo dark:bg-escuro-fundo border-b border-claro-linhas dark:border-escuro-linhas px-6 py-8 flex-col gap-5 shadow-claro lg:hidden transition-all max-h-[calc(100vh-80px)] overflow-y-auto">
+            <a href="#" class="text-lg font-medium py-2 border-b border-claro-linhas dark:border-escuro-linhas text-claro-titulo dark:text-escuro-titulo">Início</a>
+            <a href="#sobre" class="text-lg font-medium py-2 border-b border-claro-linhas dark:border-escuro-linhas text-claro-titulo dark:text-escuro-titulo">Sobre</a>
+            <a href="#servicos" class="text-lg font-medium py-2 border-b border-claro-linhas dark:border-escuro-linhas text-claro-titulo dark:text-escuro-titulo">Serviços</a>
+            <a href="#diferenciais" class="text-lg font-medium py-2 border-b border-claro-linhas dark:border-escuro-linhas text-claro-titulo dark:text-escuro-titulo">Diferenciais</a>
+            <a href="#depoimentos" class="text-lg font-medium py-2 border-b border-claro-linhas dark:border-escuro-linhas text-claro-titulo dark:text-escuro-titulo">Depoimentos</a>
+            <a href="#faq" class="text-lg font-medium py-2 border-b border-claro-linhas dark:border-escuro-linhas text-claro-titulo dark:text-escuro-titulo">FAQ</a>
+            <a href="#contato" class="text-lg font-medium py-2 text-claro-titulo dark:text-escuro-titulo">Contato</a>
+            <a href="https://wa.me/5562999999999" target="_blank" class="flex items-center justify-center gap-2 h-14 w-full bg-gradient-to-r from-claro-principal to-claro-hover dark:from-escuro-principal dark:to-escuro-hover text-white rounded-btn font-semibold">
+                <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.463 3.484 1.343 4.997L2 22l5.116-1.334a9.945 9.945 0 0 0 4.885 1.334h.004c5.514 0 9.997-4.483 9.997-9.997s-4.483-9.997-9.997-9.997zm5.741 15.738a8.286 8.286 0 0 1-5.741 2.257h-.003a8.29 8.29 0 0 1-4.223-1.152l-.303-.18-3.037.793.81-2.96-.198-.304a8.264 8.264 0 0 1-1.267-4.396c0-4.573 3.722-8.294 8.297-8.294 2.217 0 4.301.865 5.868 2.434a8.244 8.244 0 0 1 2.428 5.865c0 4.574-3.722 8.294-8.28 8.294z"/></svg>
+                Contatar pelo WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- SEÇÃO HERO -->
+    <section class="relative min-h-screen pt-32 pb-16 flex items-center px-[10%] tablet:px-[7%] max-sm:px-6 max-w-7xl mx-auto overflow-hidden">
+        <div class="blob blob-a w-[480px] h-[480px] bg-[#8C6D2F] dark:bg-[#8C1930] -top-32 -left-32"></div>
+        <div class="blob blob-b w-[380px] h-[380px] bg-[#CBA76B] top-1/3 right-0"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
+            <div class="flex flex-col max-md:order-2">
+                <h1 class="font-title-setting text-5xl md:text-[64px] leading-[1.1] font-bold text-claro-titulo dark:text-escuro-titulo mb-6">
+                    Transforme sua <span class="color-cycle italic">rotina</span> com treinos pensados para o seu objetivo.
+                </h1>
+
+                <p class="text-lg md:text-xl text-claro-texto dark:text-escuro-texto mb-10 leading-relaxed font-normal">
+                    Cuidar da saúde, conquistar mais disposição ou buscar mudanças no corpo começa com um treino que faz sentido para você. Aqui, cada acompanhamento é planejado de forma pessoal e detalhada.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <a href="https://wa.me/5562999999999" target="_blank" class="btn-magnetic w-full sm:w-auto inline-flex items-center justify-center gap-3 h-14 px-8 bg-gradient-to-r from-claro-principal to-claro-hover dark:from-escuro-principal dark:to-escuro-hover text-white font-semibold rounded-btn shadow-claro dark:shadow-glow text-center">
+                        <span>Quero começar meu acompanhamento</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#servicos" class="btn-magnetic w-full sm:w-auto inline-flex items-center justify-center h-14 px-8 border border-claro-linhas dark:border-escuro-linhas text-claro-titulo dark:text-escuro-titulo font-semibold rounded-btn hover:bg-white/10 dark:hover:bg-escuro-cardAlt text-center">
+                        Conhecer Serviços
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center items-center max-md:order-1 max-md:mb-6">
+                <div class="ring-wrap">
+                    <div class="w-full max-w-[440px] aspect-[4/5] rounded-photo overflow-hidden shadow-claro dark:shadow-escuro bg-claro-card dark:bg-escuro-card">
+                        <img src="https://raw.githubusercontent.com/annygabb/sitepersonalfernandaalmeira/main/personalpeso.jpg" alt="Fernanda Almeida" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="absolute -bottom-4 -left-4 md:-left-10 glass rounded-card px-5 py-4 shadow-glowGold flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-escuro-gold to-claro-principal flex items-center justify-center text-white">
+                        <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-claro-titulo dark:text-escuro-titulo leading-none">Presencial & Online</p>
+                        <p class="text-xs text-claro-texto dark:text-escuro-texto">Jaraguá - GO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="relative bg-gradient-to-r from-claro-principal via-claro-hover to-claro-principal dark:from-escuro-card dark:via-escuro-cardAlt dark:to-escuro-card border-y border-white/10 dark:border-escuro-linhas py-4 overflow-hidden">
+        <div class="marquee-track text-sm md:text-base font-semibold tracking-widest uppercase text-white/90 dark:text-escuro-gold">
+            <span class="px-6">Saúde</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Estética</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Bem-estar</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Qualidade de vida</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Saúde</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Estética</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Bem-estar</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Qualidade de vida</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Saúde</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Estética</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Bem-estar</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Qualidade de vida</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Saúde</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Estética</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Bem-estar</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+            <span class="px-6">Qualidade de vida</span><span class="text-white/30 dark:text-escuro-linhas">✦</span>
+        </div>
+    </div>
+
+    <!-- PILARES -->
+    <div class="bg-claro-fundoAlt dark:bg-escuro-fundo py-16 relative dot-grid">
+        <section class="px-[10%] tablet:px-[7%] max-sm:px-6 max-w-7xl mx-auto reveal reveal-stagger">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow group">
+                    <div class="w-12 h-12 rounded-btn bg-gradient-to-br from-claro-principal to-claro-hover dark:from-escuro-principal dark:to-escuro-hover flex items-center justify-center text-white mb-6 shadow-glow">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-2">Saúde</h3>
+                    <p class="text-sm text-claro-texto dark:text-escuro-texto">Fortalecimento integral, prevenção de lesões e melhora nos seus marcadores biológicos vitais.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow group">
+                    <div class="w-12 h-12 rounded-btn bg-gradient-to-br from-claro-principal to-claro-hover dark:from-escuro-principal dark:to-escuro-hover flex items-center justify-center text-white mb-6 shadow-glow">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-2">Estética</h3>
+                    <p class="text-sm text-claro-texto dark:text-escuro-texto">Mudanças corporais sólidas através de treinos direcionados para emagrecimento ou hipertrofia.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow group">
+                    <div class="w-12 h-12 rounded-btn bg-gradient-to-br from-claro-principal to-claro-hover dark:from-escuro-principal dark:to-escuro-hover flex items-center justify-center text-white mb-6 shadow-glow">
+                        <i data-lucide="smile" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-2">Bem-estar</h3>
+                    <p class="text-sm text-claro-texto dark:text-escuro-texto">Alívio do estresse do cotidiano através da liberação correta e saudável de endorfina.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow group">
+                    <div class="w-12 h-12 rounded-btn bg-gradient-to-br from-claro-principal to-claro-hover dark:from-escuro-principal dark:to-escuro-hover flex items-center justify-center text-white mb-6 shadow-glow">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-2">Qualidade de vida</h3>
+                    <p class="text-sm text-claro-texto dark:text-escuro-texto">Mais vitalidade e energia de sobra para realizar suas tarefas e momentos de lazer.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- DIVISOR PULSE -->
+    <div class="pulse-divider max-w-7xl mx-auto px-[10%] tablet:px-[7%] max-sm:px-6">
+        <svg viewBox="0 0 1200 46" class="w-full h-full" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#CBA76B"/>
+                    <stop offset="50%" stop-color="#B8203E"/>
+                    <stop offset="100%" stop-color="#CBA76B"/>
+                </linearGradient>
+            </defs>
+            <path class="pulse-path" d="M0,23 L250,23 L280,5 L305,40 L330,10 L355,23 L950,23 L980,5 L1005,40 L1030,10 L1055,23 L1200,23"/>
+        </svg>
+    </div>
+
+    <!-- SOBRE MIM -->
+    <section id="sobre" class="py-[100px] px-[10%] tablet:px-[7%] max-sm:px-6 max-w-7xl mx-auto reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="ring-wrap">
+                    <div class="w-full max-w-[380px] aspect-square rounded-photo overflow-hidden shadow-claro dark:shadow-escuro bg-claro-card dark:bg-escuro-card">
+                        <img src="https://raw.githubusercontent.com/annygabb/sitepersonalfernandaalmeira/main/personalsentada.jpg" alt="Fernanda Almeida" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 flex flex-col justify-center">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-claro-accent dark:text-escuro-gold mb-3">Quem cuida do seu treino</span>
+                <h2 class="font-title-setting text-4xl font-bold text-claro-titulo dark:text-escuro-titulo mb-6">Sobre Mim</h2>
+                <div class="space-y-4 text-lg text-claro-texto dark:text-escuro-texto leading-relaxed">
+                    <p>
+                        Olá, sou a <strong class="text-claro-titulo dark:text-escuro-titulo">Fernanda Almeida</strong>. Como estudante apaixonada de Educação Física, vejo o movimento humano como uma ferramenta poderosa de transformação de vidas. Meu propósito é guiar você em direção a uma rotina mais saudável, promovendo autoestima e longevidade.
+                    </p>
+                    <p>
+                        Acredito genuinamente em um modelo de atendimento acolhedor e próximo. Cada pessoa carrega seu próprio ritmo, limitações e histórias, e é com base nisso que desenho metodologias sob medida.
+                    </p>
+                </div>
+
+                <div class="mt-8 p-6 glass border-l-4 border-claro-principal dark:border-escuro-gold rounded-r-card shadow-claro dark:shadow-glowGold">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-claro-accent dark:text-escuro-gold mb-1">Meu Compromisso</h4>
+                    <p class="font-title-setting text-xl italic text-claro-titulo dark:text-white opacity-90">
+                        "Estarei ao seu lado em cada etapa, adaptando o plano à sua realidade para garantir constância e resultados sem que você precise abrir mão do seu bem-estar."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <div class="bg-claro-fundoAlt dark:bg-escuro-fundo py-[100px] relative overflow-hidden">
+        <div class="blob blob-a w-[420px] h-[420px] bg-[#6B6B68] dark:bg-[#B8203E] top-0 right-0 opacity-30"></div>
+        <section id="servicos" class="relative z-10 px-[10%] tablet:px-[7%] max-sm:px-6 max-w-7xl mx-auto reveal">
+            <div class="text-center max-w-3xl mx-auto mb-[64px]">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-claro-accent dark:text-escuro-gold mb-3 block">O que eu ofereço</span>
+                <h2 class="font-title-setting text-4xl font-bold text-claro-titulo dark:text-escuro-titulo mb-4">Serviços Personalizados</h2>
+                <p class="text-lg text-claro-texto dark:text-escuro-texto">Soluções planejadas focando diretamente na sua necessidade e no seu formato ideal de treino.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger">
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow">
+                    <i data-lucide="trending-down" class="w-8 h-8 text-claro-accent dark:text-escuro-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-3">Emagrecimento</h3>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto">Protocolos eficientes focados na queima de gordura preservando sua massa magra.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow">
+                    <i data-lucide="dumbbell" class="w-8 h-8 text-claro-accent dark:text-escuro-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-3">Hipertrofia</h3>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto">Planejamento de carga, volume e progressão ideal de treinos voltados ao ganho de massa muscular.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow">
+                    <i data-lucide="zap" class="w-8 h-8 text-claro-accent dark:text-escuro-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-3">Condicionamento Físico</h3>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto">Aumento da sua capacidade cardiorrespiratória e resistência, diminuindo o cansaço excessivo.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow">
+                    <i data-lucide="globe" class="w-8 h-8 text-claro-accent dark:text-escuro-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-3">Treinamento Online</h3>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto">Planilhas dinâmicas de treinamento detalhadas via aplicativo para você treinar onde quiser.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow">
+                    <i data-lucide="map-pin" class="w-8 h-8 text-claro-accent dark:text-escuro-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-3">Treinamento Presencial</h3>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto">Acompanhamento cara a cara em Jaraguá - GO, com correção postural e execução em tempo real.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow">
+                    <i data-lucide="move" class="w-8 h-8 text-claro-accent dark:text-escuro-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-3">Funcional</h3>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto">Treinos multiarticulares que aprimoram força, mobilidade e equilíbrio para o seu dia a dia.</p>
+                </div>
+                <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card hover-glow lg:col-span-3 md:col-span-2">
+                    <i data-lucide="user-check" class="w-8 h-8 text-claro-accent dark:text-escuro-gold mb-6"></i>
+                    <h3 class="text-xl font-bold text-claro-titulo dark:text-white mb-3">Acompanhamento Personalizado</h3>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto">Presença próxima voltada para alinhar sua postura, ajustar a execução milimetricamente em tempo real e fornecer um direcionamento exclusivo.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JORNADA -->
+    <section class="py-[100px] px-[10%] tablet:px-[7%] max-sm:px-6 max-w-7xl mx-auto reveal">
+        <div class="text-center max-w-3xl mx-auto mb-[64px]">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-claro-accent dark:text-escuro-gold mb-3 block">Passo a passo</span>
+            <h2 class="font-title-setting text-4xl font-bold text-claro-titulo dark:text-escuro-titulo mb-4">Sua Jornada Simplificada</h2>
+            <p class="text-lg text-claro-texto dark:text-escuro-texto">Passo a passo transparente de como iniciaremos nossa parceria pelo seu bem-estar.</p>
+        </div>
+
+        <div class="relative grid grid-cols-1 md:grid-cols-4 gap-8 reveal-stagger">
+            <div class="hidden md:block absolute top-[52px] left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-escuro-gold via-claro-principal to-escuro-gold opacity-40"></div>
+            <div class="relative flex flex-col items-start glass p-6 rounded-card shadow-claro border border-claro-linhas dark:border-escuro-linhas hover-glow">
+                <div class="text-3xl font-title-setting font-bold grad-text invisible mb-4">01</div>
+                <h3 class="text-lg font-bold text-claro-titulo dark:text-white mb-2">Conversa</h3>
+                <p class="text-sm text-claro-texto dark:text-escuro-texto">Primeiro contato descomplicado via WhatsApp para entender sua rotina diária.</p>
+            </div>
+            <div class="relative flex flex-col items-start glass p-6 rounded-card shadow-claro border border-claro-linhas dark:border-escuro-linhas hover-glow">
+                <div class="text-3xl font-title-setting font-bold grad-text invisible mb-4">02</div>
+                <h3 class="text-lg font-bold text-claro-titulo dark:text-white mb-2">Metas</h3>
+                <p class="text-sm text-claro-texto dark:text-escuro-texto">Alinhamento detalhado sobre metas estéticas, saúde ou ganho de vitalidade.</p>
+            </div>
+            <div class="relative flex flex-col items-start glass p-6 rounded-card shadow-claro border border-claro-linhas dark:border-escuro-linhas hover-glow">
+                <div class="text-3xl font-title-setting font-bold grad-text invisible mb-4">03</div>
+                <h3 class="text-lg font-bold text-claro-titulo dark:text-white mb-2">Treino</h3>
+                <p class="text-sm text-claro-texto dark:text-escuro-texto">Desenho de planilhas de treino totalmente personalizadas para o seu condicionamento atual.</p>
+            </div>
+            <div class="relative flex flex-col items-start glass p-6 rounded-card shadow-claro border border-claro-linhas dark:border-escuro-linhas hover-glow">
+                <div class="text-3xl font-title-setting font-bold grad-text invisible mb-4">04</div>
+                <h3 class="text-lg font-bold text-claro-titulo dark:text-white mb-2">Evolução</h3>
+                <p class="text-sm text-claro-texto dark:text-escuro-texto">Suporte periódico ativo para tirar dúvidas e realizar ajustes estratégicos de carga.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVISOR PULSE -->
+    <div class="pulse-divider max-w-7xl mx-auto px-[10%] tablet:px-[7%] max-sm:px-6">
+        <svg viewBox="0 0 1200 46" class="w-full h-full" preserveAspectRatio="none">
+            <path class="pulse-path" d="M0,23 L250,23 L280,5 L305,40 L330,10 L355,23 L950,23 L980,5 L1005,40 L1030,10 L1055,23 L1200,23" stroke="url(#pulseGrad)"/>
+        </svg>
+    </div>
+
+    <!-- DIFERENCIAIS -->
+    <div class="bg-claro-fundoAlt dark:bg-escuro-fundo py-[100px]">
+        <section id="diferenciais" class="px-[10%] tablet:px-[7%] max-sm:px-6 max-w-7xl mx-auto reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-claro-accent dark:text-escuro-gold mb-3 block">Diferenciais</span>
+                    <h2 class="font-title-setting text-4xl font-bold text-claro-titulo dark:text-escuro-titulo mb-6">Por que treinar comigo?</h2>
+                    <p class="text-lg text-claro-texto dark:text-escuro-texto mb-8 leading-relaxed">
+                        Aqui você recebe muito mais do que uma ficha fria de academia: recebe acompanhamento cuidadoso e atenção constante.
+                    </p>
+                    <a href="https://wa.me/5562999999999" target="_blank" class="btn-magnetic inline-flex items-center gap-2 h-14 px-6 bg-gradient-to-r from-claro-principal to-claro-hover dark:from-escuro-principal dark:to-escuro-hover text-white font-semibold rounded-btn shadow-claro dark:shadow-glow">
+                        <span>Quero saber como funciona</span>
+                        <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal-stagger">
+                    <div class="p-6 glass border border-claro-linhas dark:border-escuro-linhas rounded-card shadow-claro hover-glow">
+                        <div class="w-9 h-9 rounded-full bg-claro-principal/10 dark:bg-escuro-gold/10 flex items-center justify-center text-claro-principal dark:text-escuro-gold mb-3">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-claro-titulo dark:text-white mb-2">Atendimento individual</h4>
+                        <p class="text-sm text-claro-texto dark:text-escuro-texto">Sua individualidade biológica e rotina profissional respeitadas ao extremo.</p>
+                    </div>
+                    <div class="p-6 glass border border-claro-linhas dark:border-escuro-linhas rounded-card shadow-claro hover-glow">
+                        <div class="w-9 h-9 rounded-full bg-claro-principal/10 dark:bg-escuro-gold/10 flex items-center justify-center text-claro-principal dark:text-escuro-gold mb-3">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-claro-titulo dark:text-white mb-2">Treinos sob medida</h4>
+                        <p class="text-sm text-claro-texto dark:text-escuro-texto">Nada de fichas genéricas prontas. Tudo estruturado do zero para você.</p>
+                    </div>
+                    <div class="p-6 glass border border-claro-linhas dark:border-escuro-linhas rounded-card shadow-claro hover-glow">
+                        <div class="w-9 h-9 rounded-full bg-claro-principal/10 dark:bg-escuro-gold/10 flex items-center justify-center text-claro-principal dark:text-escuro-gold mb-3">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-claro-titulo dark:text-white mb-2">Acompanhamento contínuo</h4>
+                        <p class="text-sm text-claro-texto dark:text-escuro-texto">Análise periódica de evolução para otimizar seus ganhos de força e fôlego.</p>
+                    </div>
+                    <div class="p-6 glass border border-claro-linhas dark:border-escuro-linhas rounded-card shadow-claro hover-glow">
+                        <div class="w-9 h-9 rounded-full bg-claro-principal/10 dark:bg-escuro-gold/10 flex items-center justify-center text-claro-principal dark:text-escuro-gold mb-3">
+                            <i data-lucide="check" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-claro-titulo dark:text-white mb-2">Comunicação próxima</h4>
+                        <p class="text-sm text-claro-texto dark:text-escuro-texto">Canal aberto e direto via WhatsApp para solucionar suas dúvidas rapidamente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="py-[100px] px-[10%] tablet:px-[7%] max-sm:px-6 max-w-7xl mx-auto reveal">
+        <div class="text-center max-w-3xl mx-auto mb-[64px]">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-claro-accent dark:text-escuro-gold mb-3 block">Resultados reais</span>
+            <h2 class="font-title-setting text-4xl font-bold text-claro-titulo dark:text-escuro-titulo mb-4">Histórias de Transformação</h2>
+            <p class="text-lg text-claro-texto dark:text-escuro-texto">Veja o impacto real do acompanhamento personalizado na vida de quem confiou no processo.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-stagger">
+            <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card shadow-claro hover-glow flex flex-col justify-between">
+                <div>
+                    <i data-lucide="quote" class="w-8 h-8 text-claro-principal/20 dark:text-escuro-gold/30 mb-2"></i>
+                    <div class="flex text-[#CBA76B] gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto italic mb-6">
+                        "Comecei como completo iniciante na academia. Tinha muita vergonha e medo de me lesionar, mas a Fernanda me deu um suporte incrível. O treino foi muito bem detalhado."
+                    </p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-claro-fundo overflow-hidden ring-2 ring-claro-principal/20 dark:ring-escuro-gold/30">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop" alt="Mariana" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h5 class="text-sm font-bold text-claro-titulo dark:text-white">Mariana Silva</h5>
+                        <p class="text-xs text-claro-accent dark:text-escuro-gold font-semibold">Foco em Emagrecimento</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card shadow-claro hover-glow flex flex-col justify-between">
+                <div>
+                    <i data-lucide="quote" class="w-8 h-8 text-claro-principal/20 dark:text-escuro-gold/30 mb-2"></i>
+                    <div class="flex text-[#CBA76B] gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto italic mb-6">
+                        "A consultoria online superou minhas expectativas. Consigo conciliar perfeitamente com os meus horários apertados e melhorei minha disposição diária de forma nítida."
+                    </p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-claro-fundo overflow-hidden ring-2 ring-claro-principal/20 dark:ring-escuro-gold/30">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop" alt="Ricardo" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h5 class="text-sm font-bold text-claro-titulo dark:text-white">Ricardo Santos</h5>
+                        <p class="text-xs text-claro-accent dark:text-escuro-gold font-semibold">Foco em Condicionamento</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-8 glass border border-claro-linhas dark:border-escuro-linhas rounded-card shadow-claro hover-glow flex flex-col justify-between">
+                <div>
+                    <i data-lucide="quote" class="w-8 h-8 text-claro-principal/20 dark:text-escuro-gold/30 mb-2"></i>
+                    <div class="flex text-[#CBA76B] gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <p class="text-base text-claro-texto dark:text-escuro-texto italic mb-6">
+                        "Treinar sabendo o porquê de cada exercício mudou meu foco. Excelente profissional, atenciosa e extremamente organizada. Super recomendo o trabalho em Jaraguá!"
+                    </p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-claro-fundo overflow-hidden ring-2 ring-claro-principal/20 dark:ring-escuro-gold/30">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop" alt="Camila" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h5 class="text-sm font-bold text-claro-titulo dark:text-white">Camila Rodrigues</h5>
+                        <p class="text-xs text-claro-accent dark:text-escuro-gold font-semibold">Foco em Hipertrofia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <div class="bg-claro-fundoAlt dark:bg-escuro-fundo py-[100px]">
+        <section id="faq" class="px-[10%] tablet:px-[7%] max-sm:px-6 max-w-4xl mx-auto reveal">
+            <div class="text-center mb-[64px]">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-claro-accent dark:text-escuro-gold mb-3 block">Dúvidas</span>
+                <h2 class="font-title-setting text-4xl font-bold text-claro-titulo dark:text-escuro-titulo mb-4">Perguntas Frequentes</h2>
+                <p class="text-lg text-claro-texto dark:text-escuro-texto">Respostas diretas e transparentes para as suas principais dúvidas.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border border-claro-linhas dark:border-escuro-linhas rounded-card glass overflow-hidden transition-all hover:border-claro-principal/40 dark:hover:border-escuro-gold/40">
+                    <button class="faq-btn w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-claro-titulo dark:text-white">
+                        <span>Preciso já treinar ou ter experiência na academia?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-claro-accent dark:text-escuro-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-8 text-claro-texto dark:text-escuro-texto">
+                        <p class="pb-6">Não, de forma alguma. Meu acompanhamento é ideal tanto para iniciantes absolutos quanto para quem já treina há algum tempo. Todo o plano é estruturado respeitando o seu nível atual para você evoluir de forma segura.</p>
+                    </div>
+                </div>
+                <div class="border border-claro-linhas dark:border-escuro-linhas rounded-card glass overflow-hidden transition-all hover:border-claro-principal/40 dark:hover:border-escuro-gold/40">
+                    <button class="faq-btn w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-claro-titulo dark:text-white">
+                        <span>Como funciona exatamente o atendimento online?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-claro-accent dark:text-escuro-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-8 text-claro-texto dark:text-escuro-texto">
+                        <p class="pb-6">Na consultoria online, realizamos uma entrevista inicial detalhada. Em seguida, monto sua planilha de treinos em um aplicativo moderno com vídeos explicativos de cada movimento. Você executa e conversamos pelo WhatsApp para correção de posturas.</p>
+                    </div>
+                </div>
+                <div class="border border-claro-linhas dark:border-escuro-linhas rounded-card glass overflow-hidden transition-all hover:border-claro-principal/40 dark:hover:border-escuro-gold/40">
+                    <button class="faq-btn w-full px-8 py-6 flex items-center justify-between text-left font-bold text-lg text-claro-titulo dark:text-white">
+                        <span>Os treinos mudam com que frequência?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-claro-accent dark:text-escuro-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-8 text-claro-texto dark:text-escuro-texto">
+                        <p class="pb-6">Os treinos são atualizados periodicamente, geralmente a cada 4 a 6 semanas. Essa regularidade garante o estímulo ideal para o corpo continuar se desenvolvendo, evitando a estagnação física.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA FINAL -->
+    <section id="contato" class="py-[100px] px-[10%] tablet:px-[7%] max-sm:px-6 max-w-7xl mx-auto reveal">
+        <div class="p-12 md:p-20 bg-gradient-to-br from-claro-principal via-claro-hover to-[#000000] dark:from-escuro-card dark:via-escuro-cardAlt dark:to-escuro-fundo text-white rounded-card shadow-glow text-center relative overflow-hidden">
+            <div class="blob blob-a w-[380px] h-[380px] bg-[#CBA76B] -top-20 -right-20 opacity-40"></div>
+            <div class="blob blob-b w-[300px] h-[300px] bg-[#6B6B68] dark:bg-[#E14463] bottom-0 left-0 opacity-30"></div>
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <h2 class="font-title-setting text-3xl md:text-5xl font-bold mb-6 text-white">
+                    Seu objetivo merece <span class="color-cycle">atenção</span>, planejamento e acompanhamento.
+                </h2>
+                <p class="text-lg text-white/80 mb-10 max-w-xl mx-auto">
+                    Não adie mais o cuidado com o seu corpo e sua mente. Comece hoje a construir a rotina saudável que você sempre quis com total segurança.
+                </p>
+                <a href="https://wa.me/5562999999999" target="_blank" class="btn-magnetic inline-flex items-center justify-center gap-2 sm:gap-3 h-14 sm:h-16 px-6 sm:px-10 bg-white text-claro-principal font-bold rounded-btn shadow-md text-base sm:text-xl whitespace-nowrap">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 sm:w-6 sm:h-6 shrink-0" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.463 3.484 1.343 4.997L2 22l5.116-1.334a9.945 9.945 0 0 0 4.885 1.334h.004c5.514 0 9.997-4.483 9.997-9.997s-4.483-9.997-9.997-9.997zm5.741 15.738a8.286 8.286 0 0 1-5.741 2.257h-.003a8.29 8.29 0 0 1-4.223-1.152l-.303-.18-3.037.793.81-2.96-.198-.304a8.264 8.264 0 0 1-1.267-4.396c0-4.573 3.722-8.294 8.297-8.294 2.217 0 4.301.865 5.868 2.434a8.244 8.244 0 0 1 2.428 5.865c0 4.574-3.722 8.294-8.28 8.294z"/></svg>
+                    <span>Quero começar agora</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 px-[10%] tablet:px-[7%] max-sm:px-6 border-t border-claro-linhas dark:border-escuro-linhas bg-claro-fundoAlt dark:bg-escuro-fundo">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 items-start max-sm:text-center max-sm:justify-items-center">
+            <div class="flex flex-col gap-4 max-sm:items-center">
+                <span class="flex items-center gap-3 text-xl font-title-setting font-bold text-claro-titulo dark:text-white">
+                    <img src="data:image/png;base64,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" alt="Fernanda Almeida" class="h-9 w-auto">
+                    <span>Fernanda<span class="grad-text invisible">Almeida</span></span>
+                </span>
+                <p class="text-sm text-claro-texto dark:text-escuro-texto">Estudante de Educação Física focada em proporcionar saúde, bem-estar e mudanças corporais reais e saudáveis.</p>
+            </div>
+
+            <div class="flex flex-col gap-3 max-sm:items-center">
+                <span class="text-sm font-bold uppercase tracking-wider text-claro-titulo dark:text-white">Localização</span>
+                <p class="text-sm text-claro-texto dark:text-escuro-texto flex items-center gap-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-claro-accent dark:text-escuro-gold"></i> Jaraguá - GO
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-3 max-sm:items-center">
+                <span class="text-sm font-bold uppercase tracking-wider text-claro-titulo dark:text-white">Redes Sociais</span>
+                <a href="https://wa.me/5562999999999" target="_blank" class="text-sm text-claro-texto dark:text-escuro-texto hover:text-claro-accent dark:hover:text-escuro-gold flex items-center gap-2 transition-colors">
+                    <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.463 3.484 1.343 4.997L2 22l5.116-1.334a9.945 9.945 0 0 0 4.885 1.334h.004c5.514 0 9.997-4.483 9.997-9.997s-4.483-9.997-9.997-9.997zm5.741 15.738a8.286 8.286 0 0 1-5.741 2.257h-.003a8.29 8.29 0 0 1-4.223-1.152l-.303-.18-3.037.793.81-2.96-.198-.304a8.264 8.264 0 0 1-1.267-4.396c0-4.573 3.722-8.294 8.297-8.294 2.217 0 4.301.865 5.868 2.434a8.244 8.244 0 0 1 2.428 5.865c0 4.574-3.722 8.294-8.28 8.294z"/></svg> WhatsApp
+                </a>
+                <a href="https://instagram.com/" target="_blank" class="text-sm text-claro-texto dark:text-escuro-texto hover:text-claro-accent dark:hover:text-escuro-gold flex items-center gap-2 transition-colors">
+                    <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg> Instagram
+                </a>
+            </div>
+
+            <div class="flex flex-col gap-3 max-sm:items-center">
+                <span class="text-sm font-bold uppercase tracking-wider text-claro-titulo dark:text-white">Navegação</span>
+                <div class="grid grid-cols-2 gap-2 text-sm text-claro-texto dark:text-escuro-texto max-sm:justify-items-center">
+                    <a href="#" class="hover:underline">Início</a>
+                    <a href="#sobre" class="hover:underline">Sobre</a>
+                    <a href="#servicos" class="hover:underline">Serviços</a>
+                    <a href="#diferenciais" class="hover:underline">Diferenciais</a>
+                    <a href="#depoimentos" class="hover:underline">Depoimentos</a>
+                    <a href="#faq" class="hover:underline">FAQ</a>
+                    <a href="#contato" class="hover:underline">Contato</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-claro-linhas dark:border-escuro-linhas text-center text-xs text-claro-texto dark:text-escuro-texto">
+            <p>&copy; 2026 Fernanda Almeida. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FIXO WHATSAPP -->
+    <a href="https://wa.me/5562999999999" target="_blank" class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl transition-all hover:scale-110" style="box-shadow: 0 0 0 0 rgba(37,211,102,0.6);" aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 24 24" class="w-7 h-7" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.001 2.003c-5.514 0-9.997 4.483-9.997 9.997 0 1.762.463 3.484 1.343 4.997L2 22l5.116-1.334a9.945 9.945 0 0 0 4.885 1.334h.004c5.514 0 9.997-4.483 9.997-9.997s-4.483-9.997-9.997-9.997zm5.741 15.738a8.286 8.286 0 0 1-5.741 2.257h-.003a8.29 8.29 0 0 1-4.223-1.152l-.303-.18-3.037.793.81-2.96-.198-.304a8.264 8.264 0 0 1-1.267-4.396c0-4.573 3.722-8.294 8.297-8.294 2.217 0 4.301.865 5.868 2.434a8.244 8.244 0 0 1 2.428 5.865c0 4.574-3.722 8.294-8.28 8.294z"/></svg>
+    </a>
+
+    <script>
+        lucide.createIcons();
+
+        // Alternador de tema Claro/Escuro
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+        } else {
+            htmlElement.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Header dinâmico com efeito blur no scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-claro-fundo/90', 'dark:bg-escuro-fundo/85', 'backdrop-blur-nav', 'shadow-sm', 'py-4');
+                header.classList.remove('py-6');
+            } else {
+                header.classList.remove('bg-claro-fundo/90', 'dark:bg-escuro-fundo/85', 'backdrop-blur-nav', 'shadow-sm', 'py-4');
+                header.classList.add('py-6');
+            }
+        });
+
+        // Barra de progresso de scroll
+        const progressBar = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = pct + '%';
+        });
+
+        // Cursor glow (desktop)
+        const cursorGlow = document.getElementById('cursor-glow');
+        window.addEventListener('mousemove', (e) => {
+            cursorGlow.style.transform = `translate(${e.clientX - 240}px, ${e.clientY - 240}px)`;
+        });
+
+        // Menu responsivo mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // Accordion do FAQ
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('[data-lucide="chevron-down"]');
+
+                if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                    content.style.maxHeight = '0px';
+                    if (icon) icon.style.transform = 'rotate(0deg)';
+                } else {
+                    document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = '0px');
+                    document.querySelectorAll('.faq-btn [data-lucide="chevron-down"]').forEach(i => i.style.transform = 'rotate(0deg)');
+
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(reveal => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveal.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
